@@ -17,7 +17,7 @@ LinkedIn Connect is a configurable and easy to use JavaScript script to automate
 | `MESSAGE` | Message to connect (`%EMPLOYEE%` and `%COMPANY%*` will be replaced with real values) |
 | `POSITION_KEYWORDS` | Keywords to filter employees in specific positions |
 
-4. Open chrome dev tools and paste the raw content of `linkedin_connect.js` or add it as a [snippet](https://developers.google.com/web/tools/chrome-devtools/javascript/snippets#runsources)
+4. Open chrome dev tools and paste the [raw content of linkedin_connect.js](https://raw.githubusercontent.com/mariiio/linkedin_connect/master/linkedin_connect.js) or add it as a [snippet](https://developers.google.com/web/tools/chrome-devtools/javascript/snippets#runsources)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
