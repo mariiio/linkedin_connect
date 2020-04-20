@@ -41,12 +41,11 @@
   }
 
   function getButtonElements() {
-    return [...document.querySelectorAll("button span")].filter((a) => {
+    return [...document.querySelectorAll('button[data-control-name="people_profile_card_connect_button"]')].filter((a) => {
       let cardInfo = a.offsetParent.innerText.split("\n");
       let roleIndex = cardInfo.length > 3 ? 3 : 1;
       let role = cardInfo[roleIndex];
       return (
-        a.textContent.includes("Connect") &&
         POSITION_KEYWORDS.some((r) => role.match(new RegExp(r, "gi")))
       );
     });
@@ -92,6 +91,8 @@
       }, 0);
     });
   }
+  
+  // <--> //
 
   console.log("⏳ Started connecting, please wait.");
   var connects = 0;
