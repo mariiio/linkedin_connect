@@ -24,3 +24,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Disclaimer
+The code within this repository comes with no guarantee, the use of this code is your responsibility.
+Use at your own risk.
