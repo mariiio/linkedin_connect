@@ -78,20 +78,15 @@
     for (i; i < buttons.length; i++) {
       yield buttons[i];
     }
-    console.log("⏬ Scrolling..");
-    await scroll();
-    await new Promise((resolve) => setTimeout(resolve, WAIT_AFTER_SCROLL));
+    await loadMoreButtons();
   }
 
-  async function scroll() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-        resolve();
-      }, 0);
-    });
+  async function loadMoreButtons() {
+    console.log("⏬ Scrolling..");
+    await Promise.resolve(window.scrollTo(0, document.body.scrollHeight));
+    return new Promise((resolve) => setTimeout(resolve, WAIT_AFTER_SCROLL));
   }
-  
+
   // <--> //
 
   console.log("⏳ Started connecting, please wait.");
