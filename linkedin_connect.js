@@ -73,10 +73,9 @@
     });
   }
 
-  async function* getConnectButtons(i) {
-    let buttons = getButtonElements();
-    for (i; i < buttons.length; i++) {
-      yield buttons[i];
+  async function* getConnectButtons() {
+    for (const button of getButtonElements()) {
+      yield button;
     }
     await loadMoreButtons();
   }
@@ -93,7 +92,7 @@
   var connects = 0;
   try {
     for (let i = 0; i <= MAX_SCROLLS; i++) {
-      for await (const button of getConnectButtons(connects)) {
+      for await (const button of getConnectButtons()) {
         await connect(button);
         connects++;
       }
