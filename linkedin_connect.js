@@ -4,12 +4,12 @@
 // 4. Open chrome dev tools and paste this script or add it as a snippet
 
 (async () => {
+  // maximum amount of connection requests
+  const MAX_CONNECTIONS = 10;
   // time in ms to wait before requesting to connect
   const WAIT_TO_CONNECT = 2000;
   // time in ms to wait before new employees load after scroll
   const WAIT_AFTER_SCROLL = 3000;
-  // max depth of pages to scroll down to
-  const MAX_SCROLLS = 5;
   // message to connect (%EMPLOYEE% and %COMPANY% will be replaced with real values)
   const MESSAGE = `Hi %EMPLOYEE%, I'm a Software Engineer with 4 yrs of experience in full-stack web development. 
 	I see you're currently working at %COMPANY% where I saw a Full Stack job post and was interested to hear more about it. 
@@ -41,13 +41,15 @@
   }
 
   function getButtonElements() {
-    return [...document.querySelectorAll('button[data-control-name="people_profile_card_connect_button"]')].filter((a) => {
+    return [
+      ...document.querySelectorAll(
+        'button[data-control-name="people_profile_card_connect_button"]'
+      ),
+    ].filter((a) => {
       let cardInfo = a.offsetParent.innerText.split("\n");
       let roleIndex = cardInfo.length > 3 ? 3 : 1;
       let role = cardInfo[roleIndex];
-      return (
-        POSITION_KEYWORDS.some((r) => role.match(new RegExp(r, "gi")))
-      );
+      return POSITION_KEYWORDS.some((r) => role.match(new RegExp(r, "gi")));
     });
   }
 
@@ -74,10 +76,10 @@
   }
 
   async function* getConnectButtons() {
-    for (const button of getButtonElements()) {
-      yield button;
+    while ((buttons = getButtonElements()).length > 0) {
+      yield* buttons;
+      await loadMoreButtons();
     }
-    await loadMoreButtons();
   }
 
   async function loadMoreButtons() {
@@ -89,16 +91,19 @@
   // <--> //
 
   console.log("⏳ Started connecting, please wait.");
-  var connects = 0;
+  const buttonsGenerator = getConnectButtons();
+  let connections = 0;
   try {
-    for (let i = 0; i <= MAX_SCROLLS; i++) {
-      for await (const button of getConnectButtons()) {
-        await connect(button);
-        connects++;
-      }
+    while (
+      connections < MAX_CONNECTIONS &&
+      !(next = await buttonsGenerator.next()).done
+    ) {
+      const button = next.value;
+      await connect(button);
+      connections++;
     }
     console.log(
-      `✅ Done! Successfully requested connection to ${connects} people.`
+      `✅ Done! Successfully requested connection to ${connections} people.`
     );
   } catch {
     console.log(

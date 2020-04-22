@@ -13,9 +13,9 @@ Make sure your LinkedIn is in English
 
 | Constant| Description |
 | --- | --- |
+| `MAX_CONNECTIONS` | Maximum amount of connection requests |
 | `WAIT_TO_CONNECT` | Time in ms to wait before requesting to connect |
 | `WAIT_AFTER_SCROLL` | Time in ms to wait before new employees load after scroll |
-| `MAX_SCROLLS` | Max depth of pages to scroll down to |
 | `MESSAGE` | Message to connect (`%EMPLOYEE%` and `%COMPANY%*` will be replaced with real values) |
 | `POSITION_KEYWORDS` | Keywords to filter employees in specific positions |
 
