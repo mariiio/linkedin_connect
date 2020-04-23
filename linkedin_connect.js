@@ -27,17 +27,19 @@
 
   // <--> //
 
+  const MESSAGE_CHAR_LIMIT = 300;
+
   function buildMessage(employee) {
-    let company = document.getElementsByClassName(
+    const company = document.getElementsByClassName(
       "org-top-card-summary__title"
     )[0].title;
 
-    let replacements = { "%COMPANY%": company, "%EMPLOYEE%": employee };
-    let message = MESSAGE.replace(/%\w+%/g, (i) => {
+    const replacements = { "%COMPANY%": company, "%EMPLOYEE%": employee };
+    const message = MESSAGE.replace(/%\w+%/g, (i) => {
       return replacements[i];
     });
 
-    return message.length <= 300 ? message : "";
+    return message.length <= MESSAGE_CHAR_LIMIT ? message : "";
   }
 
   function getButtonElements() {
@@ -45,16 +47,16 @@
       ...document.querySelectorAll(
         'button[data-control-name="people_profile_card_connect_button"]'
       ),
-    ].filter((a) => {
-      let cardInfo = a.offsetParent.innerText.split("\n");
-      let roleIndex = cardInfo.length > 3 ? 3 : 1;
-      let role = cardInfo[roleIndex];
-      return POSITION_KEYWORDS.some((r) => role.match(new RegExp(r, "gi")));
+    ].filter((button) => {
+      const cardInnerText = button.offsetParent.innerText.split("\n");
+      const positionIndex = cardInnerText.length > 3 ? 3 : 1;
+      const position = cardInnerText[positionIndex];
+      return POSITION_KEYWORDS.some((p) => position.match(new RegExp(p, "gi")));
     });
   }
 
   function fillMessageAndConnect() {
-    let employee = document
+    const employee = document
       .getElementById("send-invite-modal")
       .innerText.split(" ")[1];
     document.getElementById("custom-message").value = buildMessage(employee);
@@ -91,9 +93,9 @@
   // <--> //
 
   console.log("⏳ Started connecting, please wait.");
-  const buttonsGenerator = getConnectButtons();
-  let connections = 0;
   try {
+    var connections = 0;
+    const buttonsGenerator = getConnectButtons();
     while (
       connections < MAX_CONNECTIONS &&
       !(next = await buttonsGenerator.next()).done
