@@ -5,10 +5,10 @@ LinkedIn Connect is a configurable and easy to use JavaScript script to automate
 ![LinkedIn Connect Demo](demo/demo.gif)
 ## Prerequisites
 
-Make sure your LinkedIn is in English
+Make sure your _LinkedIn_ is in English
 
 ## Usage
-1. Go to the People section of the company you're interested in (https://www.linkedin.com/company/{COMPANY_NAME}/people/)
+1. Go to the _People_ section of the company you're interested in (https://www.linkedin.com/company/{COMPANY_NAME}/people/)
 2. Modify the constants at the top of [linkedin_connect.js](https://raw.githubusercontent.com/mariiio/linkedin_connect/master/linkedin_connect.js) to your liking
 
 | Constant| Description |
