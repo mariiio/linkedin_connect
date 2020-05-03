@@ -16,7 +16,7 @@ Make sure your _LinkedIn_ is in English
 | `MAX_CONNECTIONS` | Maximum amount of connection requests |
 | `WAIT_TO_CONNECT` | Time in ms to wait before requesting to connect |
 | `WAIT_AFTER_SCROLL` | Time in ms to wait before new employees load after scroll |
-| `MESSAGE` | Message to connect (`%EMPLOYEE%` and `%COMPANY%*` will be replaced with real values) |
+| `MESSAGE` | Message to connect (`%EMPLOYEE%` and `%COMPANY%` will be replaced with real values) |
 | `POSITION_KEYWORDS` | Keywords to filter employees in specific positions |
 
 3. Run it in the chrome dev tools [console](https://developers.google.com/web/tools/chrome-devtools/open#console) (or add it as a [snippet](https://developers.google.com/web/tools/chrome-devtools/javascript/snippets#create))
