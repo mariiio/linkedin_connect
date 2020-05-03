@@ -8,7 +8,7 @@ LinkedIn Connect is a configurable and easy to use JavaScript script to automate
 Make sure your LinkedIn is in English
 
 ## Usage
-1. Go to https://www.linkedin.com/company/{COMPANY_NAME}/people/
+1. Go to the People section of the company you're interested in (https://www.linkedin.com/company/{COMPANY_NAME}/people/)
 2. Modify the constants at the top of [linkedin_connect.js](https://raw.githubusercontent.com/mariiio/linkedin_connect/master/linkedin_connect.js) to your liking
 
 | Constant| Description |
@@ -19,7 +19,7 @@ Make sure your LinkedIn is in English
 | `MESSAGE` | Message to connect (`%EMPLOYEE%` and `%COMPANY%*` will be replaced with real values) |
 | `POSITION_KEYWORDS` | Keywords to filter employees in specific positions |
 
-3. Run it in the chrome dev tools [console](https://developers.google.com/web/tools/chrome-devtools/open#console) (or add it as a [snippet](https://developers.google.com/web/tools/chrome-devtools/javascript/snippets#runsources))
+3. Run it in the chrome dev tools [console](https://developers.google.com/web/tools/chrome-devtools/open#console) (or add it as a [snippet](https://developers.google.com/web/tools/chrome-devtools/javascript/snippets#create))
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
