@@ -1,3 +1,5 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 # LinkedIn Connect
 
 LinkedIn Connect is a configurable and easy to use JavaScript script to automate connections with personalized messages.
